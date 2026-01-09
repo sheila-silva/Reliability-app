@@ -1,6 +1,9 @@
 # 🚀 Reliability-app
 ![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)
 
+[![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](LICENSE)
+
+
 Este repositório contém uma aplicação web simples (uma API) em Flask que expõe duas rotas e faz controle básico de requisições, esta API está instrumentada com práticas de SRE (Site Reliability Engineering) e DevOps.
 <br>
 <br>
