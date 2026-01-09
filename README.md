@@ -1,5 +1,4 @@
 # 🚀 Reliability-app
-![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)
 
 [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](LICENSE)
 
