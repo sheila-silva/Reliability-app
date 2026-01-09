@@ -6,7 +6,7 @@
 Este repositório contém uma aplicação web simples (uma API) em Flask que expõe duas rotas e faz controle básico de requisições, esta API está instrumentada com práticas de SRE (Site Reliability Engineering) e DevOps.
 <br>
 **Esta é a estrutura do projeto, seus recursos e funções**
-![Estrutura de diretórios](images/estrutura-diretorios.jpg)
+![Estrutura do projeto](images/estrutura-diretorios.jpg)
 <br>
 README.md e DEPLOY.md fornecem instruções claras sobre uso e implantação
 <br>
