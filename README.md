@@ -2,11 +2,10 @@
 
 [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](LICENSE)
 
-
 Este repositório contém uma aplicação web simples (uma API) em Flask que expõe duas rotas e faz controle básico de requisições, esta API está instrumentada com práticas de SRE (Site Reliability Engineering) e DevOps.
 <br>
 **Esta é a estrutura do projeto, seus recursos e funções**
-![Estrutura do projeto](images/estrutura-diretorios.jpg)
+![estrutura-diretorios](https://github.com/user-attachments/assets/01f066d9-5e4b-483d-923c-1e02b255bc26)
 <br>
 README.md e DEPLOY.md fornecem instruções claras sobre uso e implantação
 <br>
