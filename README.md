@@ -11,34 +11,21 @@ A aplicação implementa uma API minimalista porém funcional, onde temos na pr�
 - Testes automatizados<br>
 - Monitoramento e observabilidade<br>
 - Processos de deploy e rollback<br>
+
+  
+**Esta é a estrutura do projeto, seus recursos e funções**:
+
+![estrutura-diretorios](https://github.com/user-attachments/assets/01f066d9-5e4b-483d-923c-1e02b255bc26) 
+
 <br>
-<br>
-**Esta é a estrutura do projeto, seus recursos e funções:** <br>
-<br>
-<br>
-![estrutura-diretorios](https://github.com/user-attachments/assets/01f066d9-5e4b-483d-923c-1e02b255bc26)  <br> 
-<br>
-**No projeto temos:** <br>
-README.md e DEPLOY.md fornecem instruções claras sobre uso e implantação
-<br>
-Aplicação:<br>
-Código isolado no diretório app/ seguindo boas práticas de organização
-Dockerfile permite deployment consistente em qualquer ambiente
-<br>
-Automação DevOps:<br>
-deploy.sh - automatiza o processo de implantação
-monitor.sh - verifica saúde e métricas da aplicação
-rollback.sh - garante recuperação rápida em caso de problemas
-<br>
-Qualidade:<br>
-Testes isolados no diretório tests/ com suas próprias dependências
-Separação entre dependências de produção e desenvolvimento
-<br>
+
 Esta estrutura reflete princípios de separação de responsabilidades, automação e confiabilidade essenciais em práticas DevOps/SRE.
+
 <br>
-<br>
-**A API expõe dois endpoints principais:** <br>
-Retorna informações sobre a aplicação e métricas básicas de uso:<br>
+
+**A API expõe dois endpoints principais:**
+
+Retorna informações sobre a aplicação e métricas básicas de uso
 
 
 ```json
@@ -49,35 +36,70 @@ Retorna informações sobre a aplicação e métricas básicas de uso:<br>
 }
 ```
 
+Características:
+
+- Versionamento dinâmico: A versão é configurável via variável de ambiente APP_VERSION
+- Contador de requisições: Rastreia o total de acessos ao endpoint (útil para métricas básicas)
+- Resposta JSON: Formato padrão para comunicação entre serviços
 
 ❤️ /health → health check
 
-📊 /metrics → métricas internas (uptime, taxa de sucesso, contadores)
-
-⚠️ Captura de erros e atualização de métricas
+Endpoint de monitoramento que indica o status da aplicação:
+```
+{
+  "status": "healthy",
+  "timestamp": "2026-01-09T14:30:45.123456"
+}
+```
 <br>
 <br>
+
+**- Práticas DevOps/SRE Implementadas:**
+
 <br>
 <br>
-**🔧 Nesta Aplicação temos:**
 
-🐳 Containerização com Docker
+✅ **Containerização**
+- Dockerfile otimizado para produção
+- Imagem leve e segura
+- Fácil replicação em qualquer ambiente
 
-🧪 Testes automatizados com Pytest
+✅ **Testes Automatizados**
+- Suite completa de testes com Pytest
+- Validação de endpoints e respostas
+- Integração com CI/CD
 
-🤖 Pipeline CI com GitHub Actions
+✅ **CI/CD Pipeline**
+- Build automatizado no GitHub Actions
+- Execução de testes em cada commit
+- Deploy contínuo após aprovação
 
-📈 Métricas internas da aplicação
+✅ **Monitoramento**
+- Health checks para verificação de disponibilidade
+- Scripts de monitoramento automatizado
+- Métricas básicas de uso
 
-🩺 Monitoramento via script shell
+✅ **Deployment Seguro**
+- Script de deploy automatizado
+- Processo de rollback em caso de falhas
+- Versionamento controlado
 
-🚀 Processo completo de Deploy automatizado
+<br>
 
-🔄 Processo seguro de Rollback
+🔄 **Fluxo de Trabalho**
+```
+Desenvolvimento → Testes → Build → Deploy → Monitoramento
+      ↓             ↓         ↓       ↓          ↓
+   (local)      (pytest)  (Docker) (scripts)  (health)
+                                      ↓
+                                  Rollback
+                                (se necessário)
+````
+
+
 <br>
 <br>
-<br>
-<br>
+
 **🛠️ Tecnologias Utilizadas:** 
 
 🐧 Linux Ubuntu
@@ -87,6 +109,75 @@ Retorna informações sobre a aplicação e métricas básicas de uso:<br>
 🤖 Github Actions
 
 🐍 Python Flask
+
+<br>
+<br>
+
+
+**- Como executar o projeto:**
+
+1.Clonar o repositório
+```
+# Clone o projeto
+git clone https://github.com/sheila-silva/Reliability-app.git
+
+# Entre no diretório
+cd Reliability-app
+```
+2.Construindo e testando o container 🐳
+```
+# Construir a imagem
+docker build -t sre-app:1.0.0 app/
+
+# Executar o container
+docker run -d -p 8080:8080 --name minha-app sre-app:1.0.0
+
+# Testar
+curl http://localhost:8080/health
+
+# Ver logs
+docker logs minha-app
+
+# Parar e remover
+docker stop minha-app
+docker rm minha-app
+````
+3.Teste local antes de fazer o push:
+````
+cd tests
+pip install -r requirements.txt
+pytest -v test_app.py
+````
+5.Torne o script executável e teste:
+````
+chmod +x monitor.sh
+
+# Inicie a aplicação em um terminal
+docker run -d -p 8080:8080 sre-app:1.0.0
+
+# Execute o monitor em outro terminal
+./monitor.sh
+````
+6.Teste do processo completo:
+````
+# Torne os scripts executáveis
+chmod +x deploy.sh rollback.sh
+
+# Faça um deploy
+./deploy.sh 1.0.0
+
+# Verifique se está funcionando
+./monitor.sh
+
+# Simule um rollback
+./rollback.sh
+
+# Verifique se voltou
+./monitor.sh
+````
+
+
+
 
 --------
 --------
@@ -124,10 +215,10 @@ This repository contains a simple web application (an API) built with Flask that
 🚀 Fully automated deployment process
 
 🔄 Safe rollback process 
+
 <br>
 <br>
-<br>
-<br>
+
 **🛠️ Technologies Used:**
 
 🐧 Linux Ubuntu
@@ -137,4 +228,17 @@ This repository contains a simple web application (an API) built with Flask that
 🤖 GitHub Actions
 
 🐍 Python Flask
+
+<br>
+<br>
+
+-----------
+------------
+
+# Autora:
+
+Sheila M. M. L. Silva 
+
+https://www.linkedin.com/in/sheilasheila/
+
 
