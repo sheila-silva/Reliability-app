@@ -2,14 +2,23 @@
 
 [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](LICENSE)
 
-Este repositório contém uma aplicação web simples (uma API) em Flask que expõe duas rotas e faz controle básico de requisições, esta API está instrumentada com práticas DevOps e  SRE (Site Reliability Engineering).
+Esta é uma API REST construída em Python utilizando o framework Flask, projetada para demonstrar práticas fundamentais de DevOps e SRE (Site Reliability Engineering) em um ambiente de produção.<br>
+<br>
+🎯 **Objetivo**: <br>
+A aplicação implementa uma API minimalista porém funcional, onde temos na prática:<br>
+- Containerização com Docker<br>
+- Pipelines de CI/CD<br>
+- Testes automatizados<br>
+- Monitoramento e observabilidade<br>
+- Processos de deploy e rollback<br>
 <br>
 <br>
-**Esta é a estrutura do projeto, seus recursos e funções:**
+**Esta é a estrutura do projeto, seus recursos e funções:** <br>
 <br>
 <br>
-![estrutura-diretorios](https://github.com/user-attachments/assets/01f066d9-5e4b-483d-923c-1e02b255bc26)
+![estrutura-diretorios](https://github.com/user-attachments/assets/01f066d9-5e4b-483d-923c-1e02b255bc26)  <br> 
 <br>
+**No projeto temos:** <br>
 README.md e DEPLOY.md fornecem instruções claras sobre uso e implantação
 <br>
 Aplicação:<br>
@@ -28,9 +37,18 @@ Separação entre dependências de produção e desenvolvimento
 Esta estrutura reflete princípios de separação de responsabilidades, automação e confiabilidade essenciais em práticas DevOps/SRE.
 <br>
 <br>
-**A aplicação contém os seguintes endpoints:**
+**A API expõe dois endpoints principais:** <br>
+Retorna informações sobre a aplicação e métricas básicas de uso:<br>
 
-🏠 Endpoint raiz (/) → retorna versão e contador de requisições
+
+```json
+{
+  "message": "Aplicação SRE Nível 1",
+  "version": "1.0.0",
+  "total_requests": 42
+}
+```
+
 
 ❤️ /health → health check
 
@@ -41,7 +59,7 @@ Esta estrutura reflete princípios de separação de responsabilidades, automaç
 <br>
 <br>
 <br>
-**🔧 Nesta aplicação temos:**
+**🔧 Nesta Aplicação temos:**
 
 🐳 Containerização com Docker
 
