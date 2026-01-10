@@ -233,7 +233,19 @@ This repository contains a simple web application (an API) built with Flask that
 <br>
 
 -----------
-------------
+-----------
+
+
+# Agradecimentos / Referências 
+
+Alura - Cursos On Line de Tecnologia 
+
+<br>
+
+
+----------
+----------
+
 
 # Autora:
 
