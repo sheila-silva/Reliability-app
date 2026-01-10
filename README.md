@@ -102,13 +102,13 @@ Desenvolvimento → Testes → Build → Deploy → Monitoramento
 
 **🛠️ Tecnologias Utilizadas:** 
 
-🐧 Linux Ubuntu
+🐧 Linux Ubuntu - v: 24.04.3 LTS
 
-🐳 Docker
+🐳 Docker - v: 29.0.2
 
 🤖 Github Actions
 
-🐍 Python Flask
+🐍 Python Flask - v: 2.3.0
 
 <br>
 <br>
